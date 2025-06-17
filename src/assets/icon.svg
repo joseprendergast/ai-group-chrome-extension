@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="60" fill="#8B5CF6"/>
+  
+  <!-- Tab stack -->
+  <rect x="32" y="32" width="64" height="16" rx="2" fill="white" opacity="0.9"/>
+  <rect x="36" y="48" width="64" height="16" rx="2" fill="white" opacity="0.7"/>
+  <rect x="40" y="64" width="64" height="16" rx="2" fill="white" opacity="0.5"/>
+  
+  <!-- AI symbol -->
+  <path d="M64 88C72.2843 88 79 81.2843 79 73C79 64.7157 72.2843 58 64 58C55.7157 58 49 64.7157 49 73C49 81.2843 55.7157 88 64 88Z" fill="#EC4899"/>
+  <path d="M64 82C68.4183 82 72 78.4183 72 74C72 69.5817 68.4183 66 64 66C59.5817 66 56 69.5817 56 74C56 78.4183 59.5817 82 64 82Z" fill="white"/>
+</svg> 
