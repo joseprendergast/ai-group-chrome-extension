@@ -45,11 +45,14 @@ export const TabMetrics: React.FC = () => {
           ? categoryCounts.reduce((a, b) => a + b, 0) / categoryCounts.length 
           : 0;
         
-        const mostUsedCategory = Object.entries(categories)
-          .reduce((a, b) => a[1] > b[1] ? a : b)[0];
-        
-        const leastUsedCategory = Object.entries(categories)
-          .reduce((a, b) => a[1] < b[1] ? a : b)[0];
+        const entries = Object.entries(categories);
+        const mostUsedCategory = entries.length
+          ? entries.reduce((a, b) => (a[1] > b[1] ? a : b))[0]
+          : '';
+
+        const leastUsedCategory = entries.length
+          ? entries.reduce((a, b) => (a[1] < b[1] ? a : b))[0]
+          : '';
         
         setMetrics({
           totalTabs,
@@ -129,21 +132,29 @@ export const TabMetrics: React.FC = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-white p-4 rounded-lg shadow">
-          <h3 className="text-lg font-semibold text-gray-800">Most Used Category</h3>
-          <p className="text-xl font-medium text-purple-600">{metrics.mostUsedCategory}</p>
-          <p className="text-sm text-gray-500">
-            {metrics.categories[metrics.mostUsedCategory]} tabs
-          </p>
-        </div>
-        <div className="bg-white p-4 rounded-lg shadow">
-          <h3 className="text-lg font-semibold text-gray-800">Least Used Category</h3>
-          <p className="text-xl font-medium text-purple-600">{metrics.leastUsedCategory}</p>
-          <p className="text-sm text-gray-500">
-            {metrics.categories[metrics.leastUsedCategory]} tabs
-          </p>
-        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="bg-white p-4 rounded-lg shadow">
+            <h3 className="text-lg font-semibold text-gray-800">Most Used Category</h3>
+            <p className="text-xl font-medium text-purple-600">
+              {metrics.mostUsedCategory || 'N/A'}
+            </p>
+            {metrics.mostUsedCategory && (
+              <p className="text-sm text-gray-500">
+                {metrics.categories[metrics.mostUsedCategory]} tabs
+              </p>
+            )}
+          </div>
+          <div className="bg-white p-4 rounded-lg shadow">
+            <h3 className="text-lg font-semibold text-gray-800">Least Used Category</h3>
+            <p className="text-xl font-medium text-purple-600">
+              {metrics.leastUsedCategory || 'N/A'}
+            </p>
+            {metrics.leastUsedCategory && (
+              <p className="text-sm text-gray-500">
+                {metrics.categories[metrics.leastUsedCategory]} tabs
+              </p>
+            )}
+          </div>
       </div>
 
       <div className="bg-white p-4 rounded-lg shadow">
